@@ -18,7 +18,10 @@ const GlobalState = (props) => {
                 .then((response) => {
                     newList.push(response.data)
                     if (newList.length === 20) {
-                        setPokemons(newList)
+                        const orderedList = newList.sort((a,b) => {
+                            return a.id -b.id
+                        })
+                        setPokemons(orderedList)
                     }
                 })
 

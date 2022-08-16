@@ -1,7 +1,10 @@
 import React from 'react'
+import { goToPokemonsDetail } from '../../routes/coordinator';
 import { PokeCardContainer, PokeImg, ButtonsContainer, ImgContainer } from './styled';
+import { useHistory } from 'react-router-dom';
 
 const PokemonCard =({pokemon}) => {
+    const history = useHistory()
     return(
         <PokeCardContainer>
             <ImgContainer>
@@ -13,7 +16,7 @@ const PokemonCard =({pokemon}) => {
                 <button>
                     Adcionar a Pokedex
                 </button>
-                <button>
+                <button onClick ={()=>goToPokemonsDetail(history, pokemon.name)}>
                     Ver detalhes
                 </button>
             </ButtonsContainer>
