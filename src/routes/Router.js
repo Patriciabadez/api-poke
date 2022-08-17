@@ -1,21 +1,26 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import HomePokemonsListScreen from '../screens/HomePokemonsListScreen/HomePokemonsListScreen';
-import PokemonDetailsScreen from '../screens/PokemonDetailsScreen/PokemonDetailsScreen';
-import PokedexScreen from '../screens/PokedexScreen/PokedexScreen';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import PokemonsListScreen from "../screens/PokemonsListScreen/PokemonsListScreen";
+import PokemonDetailScreen from "../screens/PokemonDetailScreen/PokemonDetailScreen";
+import PokedexScreen from "../screens/PokedexScreen/PokedexScreen";
 
+const Router = () => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={PokemonsListScreen} />
+        <Route
+          exact
+          path="/pokemon/:name/:telaPokedex?"
+          component={PokemonDetailScreen}
+        />
+        <Route exact path="/pokedex" component={PokedexScreen} />
+        <Route>
+          <div>Erro - Página não encontrada</div>
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
-const Router =() => {
-    return(
-        <BrowserRouter>
-        <Switch>
-          <Route exact path={"/"} component={HomePokemonsListScreen}/>
-          <Route exact path={"/pokemon/:name"} component={PokemonDetailsScreen} />
-            <Route exact path={"/pokedex"} component={PokedexScreen }/>
-            <div>Erro: Página não encontrada</div>
-        </Switch>
-      </BrowserRouter>
-    )
-}
-
-export default Router
+export default Router;

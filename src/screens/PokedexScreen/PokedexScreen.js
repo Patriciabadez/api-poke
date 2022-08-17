@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import PokemonCard from "../../components/PokemonCard/PokemonCard";
 import Header from "../../components/Header/Header";
 import GlobalStateContext from "../../global/GlobalStateContext";
-
+import { PokeListContainer } from "./styled";
 import { useHistory } from "react-router-dom";
 import { goToPokemonsList } from "../../routes/coordinator";
-import { PokeListContainer } from '../HomePokemonsListScreen/styled';
+
 
 
 const PokedexScreen = () => {
